@@ -1,0 +1,94 @@
+/* Styles for the Amero hero component (imported by demo.tsx). */
+
+.amero-hero {
+  /* Theme tokens — light defaults */
+  --amero-bg: radial-gradient(
+    120% 100% at 50% 0%,
+    #ffffff 0%,
+    #eef4fd 55%,
+    #e6eefb 100%
+  );
+  --amero-heading: #11315d;
+  --amero-text: #0d1b4b;
+  --amero-muted: rgba(13, 27, 75, 0.5);
+  --amero-muted-2: rgba(13, 27, 75, 0.45);
+  --amero-caret: #3d82de;
+  --amero-prompt-outer: rgba(157, 196, 250, 0.15);
+  --amero-prompt-inner: #ffffff;
+  --amero-prompt-border: rgba(34, 106, 205, 0.05);
+  --amero-chip: rgba(0, 0, 0, 0.05);
+  /* prompt-board controls */
+  --amero-pill-bg: #e8f1ff;
+  --amero-pill-text: #5085ce;
+  --amero-iconbtn-bg: rgba(255, 255, 255, 0.8);
+  --amero-iconbtn-border: rgba(0, 0, 0, 0.1);
+  --amero-divider: rgba(0, 0, 0, 0.12);
+
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--amero-bg);
+  color: var(--amero-text);
+}
+
+/* Dark mode — Fumadocs toggles `.dark` on <html> */
+.dark .amero-hero {
+  /* Match the site navbar / page background (near-black). */
+  --amero-bg: var(--color-fd-background, #0a0a0a);
+  --amero-heading: #f3f6fc;
+  --amero-text: #dbe4f3;
+  --amero-muted: rgba(219, 228, 243, 0.55);
+  --amero-muted-2: rgba(219, 228, 243, 0.45);
+  --amero-caret: #7dacf5;
+  --amero-prompt-outer: rgba(255, 255, 255, 0.04);
+  --amero-prompt-inner: #101216;
+  --amero-prompt-border: rgba(255, 255, 255, 0.08);
+  --amero-chip: rgba(255, 255, 255, 0.08);
+  /* prompt-board controls (dark) */
+  --amero-pill-bg: rgba(94, 148, 235, 0.18);
+  --amero-pill-text: #9ec5ff;
+  --amero-iconbtn-bg: rgba(255, 255, 255, 0.06);
+  --amero-iconbtn-border: rgba(255, 255, 255, 0.12);
+  --amero-divider: rgba(255, 255, 255, 0.15);
+}
+
+/* Icon-button glyphs are dark PNGs/SVGs built for a light UI —
+   render them white in dark mode so they stay visible. */
+.dark .amero-hero .amero-btn-icon {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+/* The AI badge glyph sits on a solid blue badge in BOTH themes,
+   so keep it white regardless of light/dark. */
+.amero-hero .amero-badge-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Blinking caret for the typewriter prompt */
+.amero-caret {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-left: 2px;
+  background: var(--amero-caret);
+  vertical-align: middle;
+  animation: amero-blink 1s steps(1) infinite;
+}
+
+@keyframes amero-blink {
+  0%,
+  49.9% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}

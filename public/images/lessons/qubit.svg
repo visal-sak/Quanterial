@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="A qubit represented as a Bloch sphere with a state vector">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="sphere1" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="url(#bg1)"/>
+  <g transform="translate(300 240)">
+    <ellipse cx="0" cy="0" rx="150" ry="150" fill="url(#sphere1)" opacity="0.18"/>
+    <circle cx="0" cy="0" r="150" fill="none" stroke="#38bdf8" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="150" ry="52" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="52" ry="150" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.4"/>
+    <line x1="0" y1="0" x2="92" y2="-118" stroke="#f472b6" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="92" cy="-118" r="9" fill="#f472b6"/>
+    <text x="0" y="-172" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="26" text-anchor="middle">|0&#10217;</text>
+    <text x="0" y="196" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="26" text-anchor="middle">|1&#10217;</text>
+  </g>
+  <g transform="translate(560 200)">
+    <text fill="#94a3b8" font-family="system-ui, sans-serif" font-size="24">Lesson 1</text>
+    <text y="52" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="52" font-weight="700">What is a Qubit?</text>
+    <text y="104" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="26">The quantum bit and the Bloch sphere</text>
+  </g>
+</svg>

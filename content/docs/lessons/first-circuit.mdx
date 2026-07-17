@@ -1,0 +1,70 @@
+---
+title: Your First Circuit
+description: Put it all together and build a Bell state, step by step.
+---
+
+![A two-qubit circuit that creates a Bell state](/images/lessons/first-circuit.svg)
+
+## The idea
+
+Time to combine everything. A **quantum circuit** is a sequence of
+[gates](/docs/lessons/gates) applied to qubits over time — read left to right, like
+sheet music. In this lesson we'll build the circuit that creates an
+[entangled](/docs/lessons/entanglement) **Bell state**.
+
+## The recipe
+
+Just two gates on two qubits (both starting at `|0⟩`):
+
+1. Apply an **H** gate to qubit 0 → it enters superposition.
+2. Apply a **CNOT** with qubit 0 as control and qubit 1 as target → the two become
+   entangled.
+
+The result is the Bell state `|Φ⁺⟩ = 0.707|00⟩ + 0.707|11⟩`.
+
+## Step by step
+
+| Step | Action        | State of the system              |
+| ---- | ------------- | -------------------------------- |
+| 0    | Start         | `|00⟩`                           |
+| 1    | H on qubit 0  | `0.707|00⟩ + 0.707|10⟩`          |
+| 2    | CNOT (0 → 1)  | `0.707|00⟩ + 0.707|11⟩`          |
+
+## In code
+
+```ts
+// Pseudocode for a Bell-state circuit
+const circuit = createCircuit({ qubits: 2 });
+
+circuit.h(0);        // superposition on qubit 0
+circuit.cnot(0, 1);  // entangle qubit 1 with qubit 0
+
+const result = circuit.measureAll();
+// result is "00" or "11", each ~50% of the time — never "01" or "10"
+console.log(result);
+```
+
+<Callout title="You just built entanglement">
+  Run this circuit many times and you'll only ever see `00` or `11`. That perfect
+  correlation is entanglement in action — the whole point of Lesson 3, now created
+  from scratch.
+</Callout>
+
+## Practice
+
+**Question:** After running the Bell-state circuit, which measurement results are
+**impossible**?
+
+<details>
+  <summary>Show answer</summary>
+
+  **`01` and `10`.** The Bell state `|Φ⁺⟩` only contains `|00⟩` and `|11⟩`, so the two
+  qubits always match.
+</details>
+
+## You finished the mini-course! 🎉
+
+<Cards>
+  <Card title="Back to all Lessons" href="/docs/lessons" />
+  <Card title="Explore Learning Paths" href="/docs/learning-paths" />
+</Cards>

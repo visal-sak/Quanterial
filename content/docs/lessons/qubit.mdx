@@ -1,0 +1,62 @@
+---
+title: What is a Qubit?
+description: The quantum bit — the basic unit of quantum information.
+---
+
+![A qubit shown as a Bloch sphere with a state vector](/images/lessons/qubit.svg)
+
+## The idea
+
+A classical **bit** is either `0` or `1`. A **qubit** (quantum bit) can be `0`, `1`,
+or — thanks to [superposition](/docs/lessons/superposition) — a blend of both at the
+same time, until it's measured.
+
+We write the two basic states using "ket" notation:
+
+- `|0⟩` — the qubit is definitely 0
+- `|1⟩` — the qubit is definitely 1
+
+## The Bloch sphere
+
+It helps to picture a qubit as a point on the surface of a sphere — the **Bloch
+sphere** in the image above. The north pole is `|0⟩`, the south pole is `|1⟩`, and
+every other point is a valid qubit state.
+
+| Concept        | Classical bit | Qubit                    |
+| -------------- | ------------- | ------------------------ |
+| Possible values | 0 or 1        | any point on the sphere  |
+| While unread    | fixed         | can be a blend of states |
+| When measured   | 0 or 1        | collapses to 0 or 1      |
+
+## Worked example
+
+Measuring a qubit that sits exactly on the equator gives a 50/50 chance of `0` or `1`:
+
+```ts
+// A qubit on the equator: equal chance of 0 or 1
+const qubit = { alpha: 0.707, beta: 0.707 }; // |ψ⟩ = 0.707|0⟩ + 0.707|1⟩
+const pZero = qubit.alpha ** 2; // 0.5
+const pOne = qubit.beta ** 2;   // 0.5
+console.log(pZero, pOne); // 0.5 0.5
+```
+
+<Callout title="Key takeaway">
+  A qubit isn't "0 and 1 at once" in a magical sense — it holds a combination of
+  possibilities that becomes a definite 0 or 1 the moment you measure it.
+</Callout>
+
+## Practice
+
+**Question:** A qubit is in the state `|0⟩`. What is the probability of measuring `1`?
+
+<details>
+  <summary>Show answer</summary>
+
+  **0%.** The state `|0⟩` has no `|1⟩` component, so measurement always yields `0`.
+</details>
+
+## Next lesson
+
+<Cards>
+  <Card title="Lesson 2 · Superposition" href="/docs/lessons/superposition" />
+</Cards>

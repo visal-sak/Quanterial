@@ -1,0 +1,20 @@
+{
+  "title": "Docs",
+  "pages": [
+    "---Introduction---",
+    "index",
+    "why-quantum-learning",
+    "getting-started",
+    "---Concepts---",
+    "core-concepts",
+    "mastery",
+    "practice",
+    "learning-paths",
+    "---Lessons---",
+    "lessons",
+    "---Help---",
+    "faq",
+    "glossary",
+    "troubleshooting"
+  ]
+}

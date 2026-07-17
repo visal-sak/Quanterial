@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Superposition shown as two overlapping wave states">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="480" fill="url(#bg2)"/>
+  <g transform="translate(120 240)" fill="none" stroke-width="5" stroke-linecap="round">
+    <path d="M0 0 Q 55 -90 110 0 T 220 0 T 330 0" stroke="#a78bfa" opacity="0.9"/>
+    <path d="M0 0 Q 55 90 110 0 T 220 0 T 330 0" stroke="#f472b6" opacity="0.9"/>
+    <path d="M0 0 Q 55 -45 110 0 T 220 0 T 330 0" stroke="#22d3ee" opacity="0.7" stroke-dasharray="4 10"/>
+  </g>
+  <g transform="translate(300 120)">
+    <text fill="#c4b5fd" font-family="system-ui, sans-serif" font-size="30" text-anchor="middle">|&#968;&#10217; = &#945;|0&#10217; + &#946;|1&#10217;</text>
+  </g>
+  <g transform="translate(560 200)">
+    <text fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="24">Lesson 2</text>
+    <text y="52" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="52" font-weight="700">Superposition</text>
+    <text y="104" fill="#ddd6fe" font-family="system-ui, sans-serif" font-size="26">Being in many states at once</text>
+  </g>
+</svg>

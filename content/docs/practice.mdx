@@ -1,0 +1,70 @@
+---
+title: Practice & Feedback
+description: How practice questions and instant feedback make learning stick.
+---
+
+Reading is not learning — **retrieving** is. Quantum Learning is built so that you
+practice constantly and get feedback the moment you need it.
+
+## Types of practice
+
+Different skills need different kinds of practice, so lessons mix several formats:
+
+| Format            | Best for                          |
+| ----------------- | --------------------------------- |
+| Multiple choice   | Recognizing concepts quickly       |
+| Fill-in-the-blank | Recalling exact terms or syntax    |
+| Short answer      | Explaining ideas in your own words |
+| Interactive/code  | Applying skills hands-on           |
+| Drag-and-drop     | Ordering steps or matching pairs   |
+
+## Instant feedback
+
+After every attempt you get feedback right away. Good feedback does three things:
+
+1. **Tells you if you were right.**
+2. **Explains why** — the reasoning, not just the answer.
+3. **Points forward** — what to review if you missed it.
+
+```ts
+interface Feedback {
+  correct: boolean;
+  explanation: string;   // why this is the answer
+  reviewTopics?: string[]; // what to revisit if you missed it
+}
+```
+
+<Callout title="Wrong answers are useful">
+  Missing a question is one of the strongest learning signals there is. The platform
+  weights a *corrected* mistake heavily when updating your
+  [mastery](/docs/mastery) — so don't be afraid to guess and learn.
+</Callout>
+
+## Hints, not answers
+
+Stuck? Ask for a **hint** instead of revealing the answer. Hints nudge you toward the
+next step while keeping the valuable "retrieval" work yours to do.
+
+## Difficulty adapts to you
+
+Practice difficulty tracks your mastery. As you improve, questions get harder; if you
+struggle, the platform eases off and reinforces the fundamentals first.
+
+```ts
+function pickDifficulty(mastery: number) {
+  if (mastery > 0.85) return 'hard';
+  if (mastery > 0.5) return 'medium';
+  return 'easy';
+}
+```
+
+## Spaced review
+
+Questions you've missed — or haven't seen in a while — reappear in your **daily review
+queue** at the moment you're most likely to be forgetting them. A few minutes a day
+keeps everything fresh.
+
+<Cards>
+  <Card title="Mastery & Progress" href="/docs/mastery" />
+  <Card title="Core Concepts" href="/docs/core-concepts" />
+</Cards>

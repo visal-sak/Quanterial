@@ -1,0 +1,65 @@
+---
+title: Entanglement
+description: When two qubits share a single, linked state.
+---
+
+![Two entangled particles linked together](/images/lessons/entanglement.svg)
+
+## The idea
+
+**Entanglement** links two qubits so that their measurement results are correlated —
+no matter how far apart they are. Measuring one instantly tells you something about
+the other.
+
+A famous entangled state is the **Bell state**:
+
+```
+|Φ⁺⟩ = 0.707 |00⟩ + 0.707 |11⟩
+```
+
+This says: the two qubits are **always the same**. If the first measures `0`, the
+second is `0`; if the first is `1`, the second is `1` — but which one you get is
+random.
+
+## What entanglement is *not*
+
+<Callout title="No faster-than-light messaging" type="warn">
+  Entanglement does **not** let you send information faster than light. Each side sees
+  random results; the correlation only appears when you compare notes through an
+  ordinary (slower-than-light) channel.
+</Callout>
+
+## Worked example
+
+```ts
+// Measuring the first qubit of a Bell state determines the second
+function measureBell(firstResult: 0 | 1) {
+  const secondResult = firstResult; // always matches in |Φ⁺⟩
+  return { firstResult, secondResult };
+}
+
+console.log(measureBell(1)); // { firstResult: 1, secondResult: 1 }
+```
+
+| First qubit measured | Second qubit becomes |
+| -------------------- | -------------------- |
+| 0                    | 0                    |
+| 1                    | 1                    |
+
+## Practice
+
+**Question:** Two qubits are in the Bell state `|Φ⁺⟩`. You measure the first and get
+`0`. What will the second qubit be?
+
+<details>
+  <summary>Show answer</summary>
+
+  **0.** In `|Φ⁺⟩` the qubits are perfectly correlated, so the second matches the
+  first.
+</details>
+
+## Next lesson
+
+<Cards>
+  <Card title="Lesson 4 · Quantum Gates" href="/docs/lessons/gates" />
+</Cards>

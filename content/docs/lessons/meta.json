@@ -1,0 +1,11 @@
+{
+  "title": "Lessons",
+  "pages": [
+    "index",
+    "qubit",
+    "superposition",
+    "entanglement",
+    "gates",
+    "first-circuit"
+  ]
+}

@@ -1,0 +1,60 @@
+---
+title: Quantum Gates
+description: The operations that transform qubits.
+---
+
+![Quantum gates placed on a qubit wire](/images/lessons/gates.svg)
+
+## The idea
+
+If qubits are the data, **quantum gates** are the operations. A gate takes a qubit
+(or several) and transforms its state. Chaining gates together builds a
+[quantum circuit](/docs/lessons/first-circuit).
+
+## The gates you'll meet first
+
+| Gate  | Name     | What it does                                        |
+| ----- | -------- | --------------------------------------------------- |
+| **X** | NOT      | Flips `|0⟩ ↔ |1⟩`                                    |
+| **H** | Hadamard | Puts a qubit into equal [superposition](/docs/lessons/superposition) |
+| **Z** | Phase    | Flips the sign of the `|1⟩` part                     |
+| **CNOT** | Controlled-NOT | Flips a target qubit *if* the control is `|1⟩` |
+
+## The Hadamard gate
+
+The **H** gate is the workhorse of quantum computing. Apply it to `|0⟩` and you get a
+qubit that's 50/50:
+
+```
+H|0⟩ = 0.707|0⟩ + 0.707|1⟩
+```
+
+```ts
+// Applying H to |0⟩ yields an equal superposition
+function hadamardOnZero() {
+  return { alpha: 0.707, beta: 0.707 }; // 50% / 50%
+}
+console.log(hadamardOnZero());
+```
+
+<Callout title="Gates are reversible">
+  Unlike many classical operations, quantum gates can always be undone. Apply the same
+  gate like **X** or **H** twice and you're back where you started.
+</Callout>
+
+## Practice
+
+**Question:** You apply an **X** gate to a qubit in state `|0⟩`. What state is it in
+now?
+
+<details>
+  <summary>Show answer</summary>
+
+  **`|1⟩`.** The X (NOT) gate flips `|0⟩` to `|1⟩`.
+</details>
+
+## Next lesson
+
+<Cards>
+  <Card title="Lesson 5 · Your First Circuit" href="/docs/lessons/first-circuit" />
+</Cards>

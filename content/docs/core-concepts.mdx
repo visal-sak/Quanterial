@@ -1,0 +1,112 @@
+---
+title: Core Concepts
+description: The building blocks of Quantum Learning — lessons, courses, paths, mastery, and feedback.
+---
+
+Understanding a few core concepts makes the whole platform click. This page is the
+mental model behind everything else in the docs — read it once and the rest will
+feel obvious.
+
+## The learning loop
+
+Every piece of Quantum Learning is built around the same four-step loop. It repeats
+at every scale, from a single practice question to a full learning path.
+
+1. **Learn** — absorb one focused idea.
+2. **Practice** — apply it immediately.
+3. **Feedback** — find out what you got right and wrong, instantly.
+4. **Review** — return later so it sticks.
+
+<Callout title="Why the loop matters">
+  Research on spaced repetition and active recall shows that *retrieving* knowledge
+  beats *re-reading* it. The loop is designed to make you retrieve early and often.
+</Callout>
+
+## Lessons
+
+A **lesson** is the smallest unit of learning: one focused idea, explained briefly
+and reinforced with practice. Lessons are designed to be finished in a single sitting
+of about 5–10 minutes.
+
+A typical lesson contains:
+
+- A short explanation (text, diagrams, or a video).
+- One or more worked examples.
+- A handful of practice questions.
+- An instant recap of what you just learned.
+
+```ts
+// The shape of a lesson in the content model
+interface Lesson {
+  id: string;
+  title: string;
+  estimatedMinutes: number;
+  concepts: string[]; // topics this lesson strengthens
+  practice: Question[];
+}
+```
+
+## Courses
+
+A **course** is an ordered collection of lessons around a single topic. Completing a
+course means you've worked through every lesson and passed its practice checks.
+
+| Course property | Meaning                                          |
+| --------------- | ------------------------------------------------ |
+| `title`         | What the course teaches                          |
+| `lessons`       | Ordered list of lessons                          |
+| `level`         | `beginner`, `intermediate`, or `advanced`        |
+| `outcomes`      | What you'll be able to do when you finish        |
+
+Courses are self-contained. You can take one on its own, or let a
+[learning path](/docs/learning-paths) sequence several together for you.
+
+## Learning paths
+
+A **learning path** chains multiple courses into a journey toward a bigger goal —
+for example, "From Beginner to Job-Ready." Paths adapt based on what you already know,
+so you never sit through material you've already mastered.
+
+<Cards>
+  <Card title="Explore Learning Paths" href="/docs/learning-paths" />
+  <Card title="Mastery & Progress" href="/docs/mastery" />
+</Cards>
+
+## Mastery
+
+Every practice attempt updates your **mastery** score for a topic — a number between
+0 and 1 that estimates how well you know it. Mastery decays gently over time, so
+occasional review keeps knowledge fresh. Mastery is covered in depth on its own page:
+[Mastery & Progress](/docs/mastery).
+
+```ts
+// Fetch a learner's mastery for a topic
+const mastery = await quantum.mastery.get({ topic: 'algebra-basics' });
+console.log(`Mastery: ${Math.round(mastery.score * 100)}%`);
+```
+
+## How the concepts fit together
+
+Here's the hierarchy from smallest to largest:
+
+| Concept    | Scope             | Tracks                     |
+| ---------- | ----------------- | -------------------------- |
+| Question   | One check         | Correct / incorrect        |
+| Lesson     | One idea          | Completion                 |
+| Course     | One topic         | Lessons completed          |
+| Path       | One goal          | Courses completed          |
+| Mastery    | A skill over time | Strength of your knowledge |
+
+<Callout title="Good to know" type="info">
+  Mastery is per-topic, not per-course. Reviewing one lesson can boost mastery that
+  several courses share — which is why the platform sometimes recommends a lesson from
+  a course you haven't formally started.
+</Callout>
+
+## Where to go next
+
+<Cards>
+  <Card title="Mastery & Progress" href="/docs/mastery" />
+  <Card title="Practice & Feedback" href="/docs/practice" />
+  <Card title="Learning Paths" href="/docs/learning-paths" />
+</Cards>

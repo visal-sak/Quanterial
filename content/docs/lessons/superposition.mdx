@@ -1,0 +1,66 @@
+---
+title: Superposition
+description: How a qubit can hold many possibilities at once.
+---
+
+![Superposition shown as overlapping wave states](/images/lessons/superposition.svg)
+
+## The idea
+
+**Superposition** is a qubit's ability to be in a combination of `|0⟩` and `|1⟩` at
+the same time. We describe it with two numbers called **amplitudes**:
+
+```
+|ψ⟩ = α|0⟩ + β|1⟩
+```
+
+- `α` (alpha) is the amplitude for `0`
+- `β` (beta) is the amplitude for `1`
+
+## The rule of the game
+
+When you measure, the qubit collapses to `0` or `1`. The probabilities come from the
+squares of the amplitudes, and they must add up to 1:
+
+```
+P(0) = |α|²      P(1) = |β|²      |α|² + |β|² = 1
+```
+
+| State                     | P(0) | P(1) |
+| ------------------------- | ---- | ---- |
+| `|0⟩`                     | 100% | 0%   |
+| `|1⟩`                     | 0%   | 100% |
+| `0.707|0⟩ + 0.707|1⟩`     | 50%  | 50%  |
+| `0.6|0⟩ + 0.8|1⟩`         | 36%  | 64%  |
+
+## Worked example
+
+```ts
+function probabilities(alpha: number, beta: number) {
+  return { pZero: alpha ** 2, pOne: beta ** 2 };
+}
+
+console.log(probabilities(0.6, 0.8)); // { pZero: 0.36, pOne: 0.64 }
+```
+
+<Callout title="Why it matters">
+  Superposition lets a quantum computer explore many possibilities in parallel. The
+  art of quantum algorithms is arranging things so the *right* answer is the most
+  likely one when you finally measure.
+</Callout>
+
+## Practice
+
+**Question:** A qubit is `0.6|0⟩ + 0.8|1⟩`. What's the probability of measuring `0`?
+
+<details>
+  <summary>Show answer</summary>
+
+  **36%** — because `P(0) = |0.6|² = 0.36`.
+</details>
+
+## Next lesson
+
+<Cards>
+  <Card title="Lesson 3 · Entanglement" href="/docs/lessons/entanglement" />
+</Cards>

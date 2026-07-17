@@ -1,0 +1,70 @@
+---
+title: Mastery & Progress
+description: How Quantum Learning measures what you know and keeps it fresh.
+---
+
+**Mastery** is the single number that drives most of the platform's smart behavior:
+what to recommend next, what to skip, and when to remind you to review. This page
+explains how it works.
+
+## What mastery is
+
+Mastery is a score between **0 and 1** for each **topic** — not each lesson or course.
+It estimates the probability that you'd answer a fresh question on that topic
+correctly right now.
+
+| Score       | Interpretation                    |
+| ----------- | --------------------------------- |
+| 0.0 – 0.3   | New or shaky — needs full teaching |
+| 0.3 – 0.7   | Learning — needs practice          |
+| 0.7 – 0.9   | Solid — occasional review           |
+| 0.9 – 1.0   | Mastered — light touch-ups only     |
+
+## How mastery goes up
+
+Every practice attempt updates the score:
+
+- **Correct answers** raise it — more for harder questions.
+- **Fast, confident correct answers** raise it slightly more.
+- **Getting something right after previously missing it** is weighted heavily,
+  because that's real learning.
+
+```ts
+// Simplified mastery update
+function updateMastery(current: number, correct: boolean, difficulty: number) {
+  const target = correct ? 1 : 0;
+  const rate = 0.15 * difficulty; // harder questions move the needle more
+  return current + (target - current) * rate;
+}
+```
+
+## How mastery decays
+
+Knowledge fades if you never revisit it, so mastery **decays gently over time**. The
+decay is slow for well-mastered topics and faster for ones you only recently learned.
+
+<Callout title="This is a feature, not a punishment" type="info">
+  Decay is what powers spaced repetition. When a topic dips below a threshold, the
+  platform surfaces a quick review before you'd have forgotten it — the most efficient
+  moment to reinforce it.
+</Callout>
+
+## Progress vs. mastery
+
+They're related but different:
+
+- **Progress** = how much of the content you've *completed* (lessons, courses, paths).
+- **Mastery** = how well you actually *know* the material, right now.
+
+You can have 100% progress on a course and still have mastery decay weeks later. The
+dashboard shows both so you get the full picture.
+
+## Reviewing efficiently
+
+The platform builds a **daily review queue** from topics whose mastery has dipped.
+Clearing it takes just a few minutes and is the highest-leverage thing you can do.
+
+<Cards>
+  <Card title="Practice & Feedback" href="/docs/practice" />
+  <Card title="Learning Paths" href="/docs/learning-paths" />
+</Cards>

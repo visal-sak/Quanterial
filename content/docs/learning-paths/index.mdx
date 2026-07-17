@@ -1,0 +1,82 @@
+---
+title: Learning Paths
+description: Guided journeys that chain courses together toward a real goal.
+---
+
+A **learning path** is a curated sequence of courses that takes you from where you
+are to where you want to be. Instead of guessing what to study next, follow a path
+and let the platform handle the ordering, pacing, and review for you.
+
+## Why use a path instead of picking courses yourself?
+
+- **No decision fatigue** — you always know the single next thing to do.
+- **Correct ordering** — prerequisites come before the things that need them.
+- **Adaptive pacing** — topics you already know are trimmed automatically.
+- **A finish line** — a clear goal and a certificate when you complete it.
+
+## How paths work
+
+1. **Pick a goal** — e.g. "Data Analysis Fundamentals."
+2. **Get a plan** — we order the right courses for that goal.
+3. **Learn adaptively** — topics you already know are skipped or shortened.
+4. **Track progress** — your dashboard shows the next recommended lesson.
+5. **Finish confidently** — earn a certificate when the path is complete.
+
+## Choose your level
+
+<Cards>
+  <Card title="Beginner Paths" href="/docs/learning-paths/beginner" />
+  <Card title="Advanced Paths" href="/docs/learning-paths/advanced" />
+</Cards>
+
+## Anatomy of a path
+
+A path is just an ordered list of courses plus a goal statement:
+
+```ts
+const path = {
+  id: 'data-analysis-fundamentals',
+  goal: 'Analyze real datasets with confidence',
+  level: 'beginner',
+  courses: [
+    'spreadsheets-basics',
+    'intro-to-statistics',
+    'data-visualization',
+    'telling-stories-with-data',
+  ],
+};
+```
+
+## How adaptation works
+
+Before you start, an optional **placement quiz** measures your existing
+[mastery](/docs/mastery) of the topics in the path. Anything you've already mastered
+is trimmed, so the path stays focused on what's new to you.
+
+| Your mastery of a topic | What the path does           |
+| ----------------------- | ---------------------------- |
+| High (≥ 80%)            | Skips the topic entirely      |
+| Medium (40–80%)         | Shows a short refresher only  |
+| Low (< 40%)             | Includes the full course      |
+
+## Tracking a path
+
+Your dashboard shows overall path progress plus the next recommended lesson, so you
+always know the single best thing to do next.
+
+```ts
+const progress = await quantum.paths.progress('data-analysis-fundamentals');
+console.log(`${progress.completedCourses}/${progress.totalCourses} courses done`);
+console.log('Next up:', progress.nextLesson.title);
+```
+
+<Callout title="Adaptive by design">
+  Take the placement quiz before starting a path — mastery you already have lets us
+  trim the path so you spend time only on what's new.
+</Callout>
+
+## Certificates
+
+Finish every course in a path and you earn a **certificate** you can share. Each
+certificate lists the goal, the courses completed, and the date — a simple way to
+show what you've learned.

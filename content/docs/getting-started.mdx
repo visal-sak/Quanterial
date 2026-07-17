@@ -1,0 +1,92 @@
+---
+title: Getting Started
+description: Create an account, pick a course, and complete your first lesson.
+icon: PlayCircle
+---
+
+This guide gets you from zero to your first completed lesson in a few minutes.
+
+## Before you begin
+
+You'll need:
+
+- A device with a modern browser (phone, tablet, or computer).
+- An email address, or a Google/GitHub account for single sign-on.
+- About 10 minutes.
+
+That's it — there's nothing to install.
+
+## 1. Create your account
+
+Sign up with an email address or a supported single sign-on provider. Once you're
+in, you'll land on your **dashboard** — your home base for everything you're learning.
+
+<Callout title="Verify your email">
+  If you sign up with email, click the verification link so we can save your progress
+  and send review reminders.
+</Callout>
+
+## 2. Take the placement quiz (optional but recommended)
+
+The short placement quiz measures what you already know so paths can skip it. It takes
+about 3 minutes and can save you hours. You can always retake or skip it later.
+
+## 3. Choose a course or path
+
+Browse the catalog and pick a course that matches your goal, or start a guided
+[learning path](/docs/learning-paths) if you want the ordering handled for you.
+
+<Cards>
+  <Card title="Browse Learning Paths" href="/docs/learning-paths" />
+  <Card title="Understand Core Concepts" href="/docs/core-concepts" />
+</Cards>
+
+## 4. Complete your first lesson
+
+Each lesson follows the same simple loop:
+
+- **Learn** — read a short, focused explanation.
+- **Practice** — apply it immediately with a hands-on exercise.
+- **Feedback** — get instant, explanatory feedback.
+- **Review** — a quick recap of what you learned.
+
+```ts
+// Mark a lesson complete via the API
+await quantum.progress.complete({
+  courseId: 'intro-to-quantum',
+  lessonId: 'welcome',
+});
+```
+
+## 5. Keep your streak
+
+Come back daily to build a streak. Streaks are the simplest way to turn learning
+into a habit — even 10 minutes a day adds up fast.
+
+<Callout title="Tip">
+  Turn on email or push reminders from **Settings → Notifications** so you never
+  break a streak by accident.
+</Callout>
+
+## 6. Clear your daily review
+
+Once you've learned a few things, your dashboard shows a **review queue** — a handful
+of questions on topics that are starting to fade. Clearing it takes a few minutes and
+is the highest-leverage habit on the platform. Learn why on
+[Mastery & Progress](/docs/mastery).
+
+## Troubleshooting
+
+| Problem                        | Fix                                             |
+| ------------------------------ | ----------------------------------------------- |
+| Didn't get the verification email | Check spam, then resend from the login screen |
+| Progress didn't save            | Make sure you're signed in on this device       |
+| A lesson won't load             | Refresh the page; see [Troubleshooting](/docs/troubleshooting) |
+
+## Next steps
+
+<Cards>
+  <Card title="Core Concepts" href="/docs/core-concepts" />
+  <Card title="Learning Paths" href="/docs/learning-paths" />
+  <Card title="FAQ" href="/docs/faq" />
+</Cards>
