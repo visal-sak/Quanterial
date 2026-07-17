@@ -12,7 +12,7 @@ export function meta({}: Route.MetaArgs) {
   const description =
     'Learn by doing with Quanterial — bite-sized lessons, hands-on practice, and adaptive learning paths.';
   const url = 'https://quanterial.vercel.app/';
-  const image = 'https://quanterial.vercel.app/og/og.png';
+  const image = 'https://quanterial.vercel.app/images/og/og.png';
 
   return [
     { title },
@@ -24,8 +24,8 @@ export function meta({}: Route.MetaArgs) {
     { property: 'og:description', content: description },
     { property: 'og:url', content: url },
     { property: 'og:image', content: image },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:width', content: '1548' },
+    { property: 'og:image:height', content: '932' },
     { property: 'og:image:alt', content: 'Quanterial — Learn by doing' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
