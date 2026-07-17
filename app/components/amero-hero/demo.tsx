@@ -255,9 +255,9 @@ type CardDef = {
   start: { x: number; y: number };
 };
 const CARDS: CardDef[] = [
-  { src: "https://www.azoquantum.com/images/Article_Images/ImageForArticle_88_17256255059219994.jpg", w: 88.55, h: 68.46, x: -82, y: 123, rot: -16, start: { x: -5, y: 7 } },
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5pTf_olZCnVuhF5ab-9Zyx1XgRWSE_jKGndMwm7QceCIpoOgeYW73Nxs&s=10", w: 105, h: 87, x: 68, y: 124, rot: 24, start: { x: 35, y: 33 } },
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ8ReIeYLk2C6qtvs7cLZTZsYVnC1nnr8c_TDn99CgjLzdbp8wawYMCEag&s=10", w: 105, h: 96, x: -4, y: 148, rot: -4, start: { x: -4, y: 27 } },
+  { src: "/images/hero/quantum-card-1.jpg", w: 88.55, h: 68.46, x: -82, y: 123, rot: -16, start: { x: -5, y: 7 } },
+  { src: "/images/hero/quantum-card-2.jpg", w: 105, h: 87, x: 68, y: 124, rot: 24, start: { x: 35, y: 33 } },
+  { src: "/images/hero/quantum-card-3.jpg", w: 105, h: 96, x: -4, y: 148, rot: -4, start: { x: -4, y: 27 } },
 ];
 const FOLDER_CENTER = 113.67 / 2;
 
