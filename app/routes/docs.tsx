@@ -14,16 +14,18 @@ import { baseOptions } from '@/lib/layout.shared';
 import { gitConfig } from '@/lib/shared';
 import { useFumadocsLoader } from 'fumadocs-core/source/client';
 import { useMDXComponents } from '@/components/mdx';
+import { localeFromPath } from '@/lib/i18n';
 
-export async function loader({ params }: Route.LoaderArgs) {
+export async function loader({ params, request }: Route.LoaderArgs) {
+  const lang = localeFromPath(new URL(request.url).pathname);
   const slugs = params['*'].split('/').filter((v) => v.length > 0);
-  const page = source.getPage(slugs);
+  const page = source.getPage(slugs, lang);
   if (!page) throw new Response('Not found', { status: 404 });
 
   return {
     path: page.path,
     markdownUrl: getPageMarkdownUrl(page).url,
-    pageTree: await source.serializePageTree(source.getPageTree()),
+    pageTree: await source.serializePageTree(source.getPageTree(lang)),
   };
 }
 

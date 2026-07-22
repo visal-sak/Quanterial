@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import FloatingLines from "@/components/floating-lines/FloatingLines";
@@ -32,7 +32,7 @@ const PHRASES = [
   "Getting started guide",
   "Quantum gates basics",
 ];
-function useTypewriter() {
+function useTypewriter(phrases: string[] = PHRASES) {
   const [text, setText] = useState("");
   useEffect(() => {
     let phraseIdx = 0;
@@ -40,7 +40,7 @@ function useTypewriter() {
     let mode: "type" | "pause" | "delete" = "type";
     let timer: ReturnType<typeof setTimeout>;
     function step() {
-      const phrase = PHRASES[phraseIdx];
+      const phrase = phrases[phraseIdx];
       if (mode === "type") {
         i++;
         setText(phrase.slice(0, i));
@@ -65,7 +65,7 @@ function useTypewriter() {
     }
     timer = setTimeout(step, 600);
     return () => clearTimeout(timer);
-  }, []);
+  }, [phrases]);
   return text;
 }
 
@@ -408,8 +408,21 @@ function FolderStack() {
 }
 
 /* ---------- Main hero ---------- */
-function AmeroHero() {
-  const typed = useTypewriter();
+type HeroText = {
+  headingTop: string;
+  headingBottom: string;
+  subtitle: string;
+  phrases?: string[];
+};
+
+function AmeroHero({
+  actions,
+  text,
+}: {
+  actions?: ReactNode;
+  text?: HeroText;
+}) {
+  const typed = useTypewriter(text?.phrases);
   const isDark = useIsDark();
 
   return (
@@ -462,9 +475,9 @@ function AmeroHero() {
             textAlign: "center",
           }}
         >
-          Learn by doing with
+          {text?.headingTop ?? "Learn by doing with"}
           <br />
-          Quanterial
+          {text?.headingBottom ?? "Quanterial"}
         </motion.h1>
 
         <motion.p
@@ -480,7 +493,8 @@ function AmeroHero() {
             marginBottom: 20,
           }}
         >
-          Guides, core concepts, and hands-on lessons to get you started.
+          {text?.subtitle ??
+            "Guides, core concepts, and hands-on lessons to get you started."}
         </motion.p>
 
         {/* Prompt box */}
@@ -639,6 +653,8 @@ function AmeroHero() {
             </div>
           </div>
         </motion.div>
+
+        {actions ? <div style={{ marginTop: 24 }}>{actions}</div> : null}
       </main>
     </div>
   );
