@@ -3,10 +3,12 @@ import { icons } from 'lucide-react';
 import { createElement } from 'react';
 import { docs } from 'collections/server';
 import { docsContentRoute, docsRoute } from './shared';
+import { i18n } from './i18n';
 
 export const source = loader({
   source: docs.toFumadocsSource(),
   baseUrl: docsRoute,
+  i18n,
   icon(icon) {
     if (!icon) return;
     if (icon in icons) {

@@ -11,9 +11,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* 'Kantumruy Pro' sits after Geist so Latin text uses Geist while Khmer
+     glyphs (which Geist lacks) fall back to Kantumruy Pro automatically. */
   --font-sans:
-    'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
-    Arial, sans-serif;
+    'Geist', 'Kantumruy Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, sans-serif;
 }
 
 :root {
@@ -90,6 +92,24 @@ html {
 
 body {
   font-family: var(--font-sans);
+}
+
+/* Tailwind v4 no longer sets a pointer cursor on buttons. Restore it for
+   interactive controls (theme toggle, language switcher, nav buttons, etc.). */
+button:not(:disabled),
+[role='button']:not([aria-disabled='true']),
+label[for],
+summary {
+  cursor: pointer;
+}
+
+/* Animate the language-switcher chevron: point down when closed, flip up when
+   the popover opens. Scoped via the languages icon so it works in any locale. */
+button:has(.lucide-languages) .lucide-chevron-down {
+  transition: transform 0.2s ease;
+}
+button:has(.lucide-languages)[data-state='open'] .lucide-chevron-down {
+  transform: rotate(180deg);
 }
 
 html > body[data-scroll-locked] {

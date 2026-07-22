@@ -3,6 +3,11 @@ import { index, route, type RouteConfig } from '@react-router/dev/routes';
 export default [
   index('routes/home.tsx'),
   route('docs/*', 'routes/docs.tsx'),
+
+  // Khmer (km) locale — English stays unprefixed, Khmer is served under /km.
+  route('km', 'routes/home.tsx', { id: 'home-km' }),
+  route('km/docs/*', 'routes/docs.tsx', { id: 'docs-km' }),
+
   route('api/search', 'routes/search.ts'),
 
   // LLM integration:
